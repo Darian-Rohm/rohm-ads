@@ -1,25 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=320, height=100, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=384,height=128,initial-scale=1.0">
+  <title>Rohm Wrapper 384x128</title>
   <style>
-    html, body {
-      width: 384px;
-      height: 128px;
-      margin: 0;
-      background: #000;
-      overflow: hidden;
+    html,body{
+      width:384px;height:128px;margin:0;padding:0;overflow:hidden;
+      background:#000;               /* change to #e60000 for Vodacom red bars */
     }
-    iframe {
-      width: 320px;
-      height: 100px;
-      transform: scale(1.2);
-      transform-origin: top left;
-      border: none;
+    .frame{
+      position:relative;width:384px;height:128px;
+      display:flex;align-items:center;justify-content:center;
+      /* background:#111;  (optional for debugging) */
+    }
+    /* The ad is exactly 320x100; we scale to fit width (1.2x) and center. No crop. */
+    iframe{
+      width:320px;height:100px;border:0;display:block;
+      transform:scale(1.2);               /* 384 / 320 = 1.2 (fit width) */
+      transform-origin:center center;      /* keep it centered */
     }
   </style>
 </head>
 <body>
-  <iframe src="https://darian-rohm.github.io/rohm-ads/index.html"></iframe>
+  <div class="frame">
+    <iframe src="https://darian-rohm.github.io/rohm-ads/index.html"></iframe>
+  </div>
 </body>
 </html>
