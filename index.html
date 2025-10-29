@@ -1,121 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=384,height=128,initial-scale=1.0">
-<style>
-  html,body{width:320px;height:100px;margin:0;overflow:hidden;background:#000}
-  #frame{position:relative;width:320px;height:100px}
-  #ad-container{
-    width:320px;height:100px;position:absolute;left:0;top:0;
-    transform: scale(1.2);               /* 384/320 ≈ 1.2 */
-    transform-origin: top left;
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=320,height=100,initial-scale=1.0">
+  <title>Vodacom GPT 320x100</title>
+  <style>
+    html,body{
+      width:320px;height:100px;margin:0;padding:0;
+      overflow:hidden;background:#000;
+    }
+    /* The exact area GAM should render into */
+    #ad-container{
+      width:320px;height:100px; 
+      overflow:hidden;           /* <- prevents any ad from spilling/cropping oddly */
+      display:block;
+    }
+  </style>
 
-<div id="frame">
-  <div id="ad-container"></div>
-</div>
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script>
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function () {
+      googletag.defineSlot('/302423036/vc_test_adunit/uber_digital_board_test',
+                           [320, 100], 'ad-container')
+               .addService(googletag.pubads());
 
-<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-<script>
-  window.googletag = window.googletag || {cmd: []};
-  googletag.cmd.push(function () {
-    googletag.defineSlot('/302423036/vc_test_adunit/uber_digital_board_test',
-                         [320, 100], 'ad-container')
-             .addService(googletag.pubads());
-    googletag.pubads().set('page_url', 'https://darian-rohm.github.io/rohm-ads/');
-    googletag.pubads().collapseEmptyDivs(false);
-    googletag.enableServices();
-    googletag.display('ad-container');
-  });
-</script>
-    
-    <style>
-        html, body {
-            width: 384px;
-            height: 128px;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #000;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      // Helps GAM recognize the serving page; keeps the div visible even if empty
+      googletag.pubads().set('page_url','https://darian-rohm.github.io/rohm-ads/index.html');
+      googletag.pubads().collapseEmptyDivs(false);
 
-        .ad-wrapper {
-            position: relative;
-            width: 384px;
-            height: 128px;
-            cursor: pointer;
-        }
-
-        .background {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            animation: zoom 8s ease-in-out infinite alternate;
-        }
-
-        .headline {
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 36px;
-            font-weight: bold;
-            z-index: 2;
-            color: #e60000;
-            animation: fadeInOut 6s infinite;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 4px;
-            right: 8px;
-            font-size: 14px;
-            z-index: 3;
-            color: white;
-            opacity: 0.8;
-        }
-
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0; }
-            25%, 75% { opacity: 1; }
-        }
-
-        @keyframes zoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-    </style>
+      googletag.enableServices();
+      googletag.display('ad-container');
+    });
+  </script>
 </head>
 <body>
-    <div id="ad-container">
-        <div class="ad-wrapper" onclick="window.open('https://www.vodacom.co.za', '_blank');">
-            <!-- Replace with actual background image URL -->
-           <!-- <img class="background" src="https://via.placeholder.com/384x128.png?text=Vodacom+Test" alt="Vodacom Ad Background">-->
-            <div class="headline">Get 20GB FREE Data!</div>
-            <div class="footer">Vodacom • Powered by Rohm Media</div>
-        </div>
-    </div>
-
-    <!-- Backup image for no-JS environments -->
-    <noscript>
-       <!-- <a href="https://www.vodacom.co.za" target="_blank">
-            <img src="background1.jpg" alt="Get 20GB FREE Data!" style="width:384px;height:128px;border:0;">
-        </a>-->
-    </noscript>
+  <div id="ad-container"></div>
 </body>
-
 </html>
+
 
 
 
